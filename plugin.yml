@@ -1,0 +1,16 @@
+main: org.rollthedice.rtd
+name: RollTheDice
+version: 0.1
+author: Inspector Soviet
+description: Roll The Dice plugin
+commands:
+  rtd:
+    description: Roll the dice!
+    usage: /rtd
+  rtdinfo:
+    description: View plugin version
+    usage: /rtdinfo
+permissions:
+  rtd.notify:
+    description: Protect players from being reported
+    default: op          
