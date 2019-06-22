@@ -25,7 +25,7 @@ public class UpdateChecker {
     private String spigotPluginVersion;
 
     //Constants. Customize to your liking.
-    private static final int ID = 68410; //The ID of your resource. Can be found in the resource URL.
+    private static final int ID = 68577; //The ID of your resource. Can be found in the resource URL.
     private static final String ERR_MSG = "&c[RTD] Failed to check for updates!";
     private static final String UPDATE_MSG = "&f[RTD] ALERT: A new update is available. More info at &b https://www.spigotmc.org/resources/" + ID + "/updates";
     //PermissionDefault.FALSE == OPs need the permission to be notified.
