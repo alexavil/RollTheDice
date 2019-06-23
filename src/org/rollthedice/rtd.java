@@ -44,6 +44,10 @@ public class rtd extends JavaPlugin {
             Command command,
             String label,
             String[] args) {
+        if (command.getName().equalsIgnoreCase("rtdinfo")) {
+            sender.sendMessage("[RTD] This server is running Roll The Dice v0.2");
+            return true;
+        }
         if (command.getName().equalsIgnoreCase("rtd")) {
         	if (!(sender instanceof Player)) {
                 sender.sendMessage("You rolled... wait, you are not a player!");
@@ -52,91 +56,88 @@ public class rtd extends JavaPlugin {
             sender.sendMessage("[RTD] Rolling the dice...");
             Player player = Bukkit.getPlayer(sender.getName());
             Random fortune = new Random();
-            int fate = (fortune.nextInt(14)+1);
+            int fate = (fortune.nextInt(15)+1);
             Random healthboost = new Random();
             int boost = (healthboost.nextInt(5)+1);
             Random exp = new Random();
             int xp = (exp.nextInt(10)+1);
-            if (fate == 0) {
+            switch (fate) {
+            case 1: 
             	sender.sendMessage("[RTD] You rolled: speed for " + config.getString("Speed Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:speed" + " " + config.getString("Speed Time") + " 2");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Speed!");
-            }
-            if (fate == 1) {
+            	break;
+            case 2:
             	sender.sendMessage("[RTD] You rolled: invisibility for " + config.getString("Invisibility Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:invisibility"  + " " + config.getString("Invisibility Time") + " 2");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Invisibility!");
-            }
-            if (fate == 2) {
+                break;
+            case 3:
             	sender.sendMessage("[RTD] You rolled: Lucky Melon!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:health_boost" + " 300 " + boost);
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:instant_health" + " 15" + " 99");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Lucky Melon!");
-            }
-            if (fate == 3) {
+            	break;
+            case 4:
             	sender.sendMessage("[RTD] You rolled: instant death!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "kill " + player.getName());
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Instant Death!");
-            }
-            if (fate == 4) {
+            	break;
+            case 5:
             	sender.sendMessage("[RTD] You rolled: strength for " + config.getString("Strength Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:strength" + " " + config.getString("Strength Time") + " 3");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Strength!");
-            }
-            if (fate == 5)  {
+            	break;
+            case 6:
             	sender.sendMessage("[RTD] You rolled: experience boost!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "experience " + "add " + player.getName() + " " + xp + " levels");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Experience Boost!");
-            }
-            if (fate == 6) {
+            	break;
+            case 7:
             	sender.sendMessage("[RTD] You rolled: blind for " + config.getString("Blind Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:blindness" + " " + config.getString("Blind Time") + " 2");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Blind!");
-            }
-            if (fate == 7) {
+            	break;
+            case 8:
             	sender.sendMessage("[RTD] You rolled: EVERYONE: glow for " + config.getString("Glowing Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + "@a" + " minecraft:glowing" + " " + config.getString("Glowing Time") + " 2");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Glow for everyone!");
-            }
-            if (fate == 8) {
+            	break;
+            case 9:
             	sender.sendMessage("[RTD] You rolled: dizzy for " + config.getString("Dizzy Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:nausea" + " " + config.getString("Dizzy Time") + " 2");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Dizzy!");
-            }
-            if (fate == 9) {
+            	break;
+            case 10:
             	sender.sendMessage("[RTD] You rolled: snail for " + config.getString("Snail Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:slowness" + " " + config.getString("Snail Time") + " 5");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Snail!");
-            }
-            if (fate == 10) {
+            	break;
+            case 11:
             	sender.sendMessage("[RTD] Looks like you rolled nothing. Try again.");
-            }
-            if (fate == 11) {
+            	break;
+            case 12:
             	sender.sendMessage("[RTD] You rolled: fast hands for " + config.getString("Fast Hands Time") + " seconds!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:haste" + " " + config.getString("Fast Hands Time") + " 2");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Fast Hands!");
-            }
-            if (fate == 12) {
+            	break;
+            case 13:
             	sender.sendMessage("[RTD] You rolled: free punch!");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:instant_damage" + " 1" + " 1");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Free Punch!");
-            }
-            if (fate == 13) {
+            	break;
+            case 14:
             	sender.sendMessage("[RTD] You rolled: spontaneous combustion!");
             	player.setFireTicks(140);
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Spontaneous Combustion!");
-            }
-            if (fate == 14) {
+            	break;
+            case 15:
             	sender.sendMessage("[RTD] You rolled: weakness for " + config.getString("Weakness Time") + " seconds!" );
             	getServer().dispatchCommand(getServer().getConsoleSender(), "effect give " + player.getName() + " minecraft:weakness" + " " + config.getString("Weakness Time") + " 1");
             	getServer().dispatchCommand(getServer().getConsoleSender(), "say " + player.getName() + " rolled Weakness!");
-            }           
-            return true;
+            	break;        
+}
         }
-        if (command.getName().equalsIgnoreCase("rtdinfo")) {
-            sender.sendMessage("[RTD] This server is running Roll The Dice v0.1");
-            return true;
-        }
-		return false;
+		return true;
     }
 }
