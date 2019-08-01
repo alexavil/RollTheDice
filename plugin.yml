@@ -13,4 +13,7 @@ commands:
 permissions:
   rtd.notify:
     description: Get notified about new updates
-    default: op   
+    default: op
+  rtd.use:
+    description: Allows to use RTD
+    default: op     

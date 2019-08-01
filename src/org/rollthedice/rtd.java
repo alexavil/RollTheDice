@@ -61,6 +61,10 @@ public class rtd extends JavaPlugin {
                 player.sendMessage("[RTD] You cannot use RTD at this time.");
                 return true;
         }
+        	if (!(player.hasPermission("rtd.use"))) {
+        		player.sendMessage("[RTD] You cannot use RTD at this time.");
+                return true;
+        	}
             sender.sendMessage("[RTD] Rolling the dice...");
             Random fortune = new Random();
             int fate = (fortune.nextInt(15)+1);
