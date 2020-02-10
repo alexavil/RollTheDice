@@ -22,3 +22,5 @@ Effects:
 - Weakness
 
 You can set how long the effects will stay in config.yml. (Don't forget to restart to apply changes!) However, this is not applied to instant effects.
+
+Modified versions are not supported. Get the official version from the Releases tab.
